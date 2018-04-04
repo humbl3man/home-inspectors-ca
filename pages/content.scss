@@ -1,0 +1,37 @@
+@import './../config/_index.scss';
+
+.content {
+
+    h1,
+    h2,
+    h3 {
+        font-family: $headingFontStack;
+    }
+
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    &__heading {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 5rem;
+        text-align: center;
+        font-size: 2.5rem;
+
+        &:after {
+            content: "";
+            width: 3rem;
+            height: 5px;
+            background: $color3;
+            top: calc(100% + .5rem);
+            left: 50%;
+            transform: translateX(-50%);
+            display: block;
+            position: absolute;
+        }
+    }
+
+
+    .featured {
+        margin-bottom: 4rem;
+    }
+}

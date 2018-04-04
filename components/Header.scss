@@ -1,0 +1,97 @@
+@import './../config/_config.scss';
+
+.header {
+    background-color: $color1;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    position: relative;
+    z-index: 1001;
+
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__logo {
+        color: $white!important;
+    }
+
+    &__mobile-toggle {
+        color: $white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        @media only screen and (min-width: 767px) {
+            display: none;
+        }
+    }
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media only screen and (max-width: 767px) {
+            display: none;
+        }
+
+        a {
+            text-decoration: none;
+            text-transform: capitalize;
+            border-bottom: 2px solid transparent;
+            padding: .5rem 0;
+            margin-right: 1rem;
+            color: rgba($white, .75);
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &.active,
+            &:hover {
+                color: $color2;
+                border-color: $color2;
+            }
+        }
+    }
+}
+
+.mobile-nav {
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-125%);
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: darken($color1, 18%);
+
+
+    transition: transform 300ms ease;
+
+    &.open {
+        transform: translateY(70px);
+    }
+
+    a {
+        color: lighten($color2, 30%);
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 1.25rem .25rem;
+        border-bottom: 1px solid rgba($color2, .15);
+        text-transform: uppercase;
+        &:first-child {
+            margin-top: 2rem;
+        }
+        &:hover {
+            background-color: rgba($color1, .15);
+        }
+    }
+
+    @media only screen and (min-width: 767px) {
+        display: none!important;
+    }
+}
