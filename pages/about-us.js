@@ -13,7 +13,7 @@ export default () => (
         <h1 className="content__heading">About Us</h1>
 
         <section className="featured row d-flex align-items-center">
-          <div className="col-sm-6">
+          <div className="col-sm-6" style={{ marginBottom: '1rem' }}>
             <img className="img-fluid" src="/static/img/about-knowledge.jpg" alt="knowledge" />
           </div>
           <div className="col-sm-6">
@@ -28,7 +28,7 @@ export default () => (
         </section>
 
         <section className="featured row d-flex align-items-center">
-          <div className="col-sm-6">
+          <div className="col-sm-6 order-md-1 order-2">
             <h3>We Notice the Little Things</h3>
             <p>
               {' '}
@@ -38,13 +38,13 @@ export default () => (
               deemed material.
             </p>
           </div>
-          <div className="col-sm-6">
+          <div className="col-sm-6 order-md-2 order-1" style={{ marginBottom: '1rem' }}>
             <img className="img-fluid" src="/static/img/about-detail.jpg" alt="notice" />
           </div>
         </section>
 
         <section className="featured row d-flex align-items-center">
-          <div className="col-sm-6">
+          <div className="col-sm-6" style={{ marginBottom: '1rem' }}>
             <img className="img-fluid" src="/static/img/about-confidence.jpg" alt="confident" />
           </div>
           <div className="col-sm-6">
