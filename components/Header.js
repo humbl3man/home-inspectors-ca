@@ -3,41 +3,60 @@ import Head from 'next/head';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 
+import MobileLink from './MobileLink';
+
 import './Header.scss';
+
+const LINKS = [
+  {
+    id: 1,
+    href: '/',
+    label: 'home'
+  },
+  {
+    id: 2,
+    href: '/services',
+    label: 'services'
+  },
+  {
+    id: 3,
+    href: '/about-us',
+    label: 'about us'
+  },
+  {
+    id: 4,
+    href: '/contact-us',
+    label: 'contact'
+  },
+  {
+    id: 5,
+    href: '/faq',
+    label: 'FAQ'
+  }
+];
 
 class Header extends Component {
   constructor() {
     super();
     this.state = {
       mobileNavOpen: false,
-      links: [
-        {
-          id: 1,
-          href: '/',
-          label: 'home'
-        },
-        {
-          id: 2,
-          href: '/services',
-          label: 'services'
-        },
-        {
-          id: 3,
-          href: '/about-us',
-          label: 'about us'
-        },
-        {
-          id: 4,
-          href: '/contact-us',
-          label: 'contact'
-        },
-        {
-          id: 5,
-          href: '/faq',
-          label: 'FAQ'
-        }
-      ]
+      links: LINKS
     };
+
+    this.toggleMobileNav = this.toggleMobileNav.bind(this);
+    this.closeMobileNav = this.closeMobileNav.bind(this);
+  }
+
+  toggleMobileNav() {
+    this.setState({
+      mobileNavOpen: !this.state.mobileNavOpen
+    });
+  }
+
+  closeMobileNav() {
+    this.setState({
+      mobileNavOpen: false
+    });
   }
 
   renderLinks(options) {
@@ -48,6 +67,21 @@ class Header extends Component {
       <nav className={`${isMobile ? (this.state.mobileNavOpen ? 'mobile-nav open' : 'mobile-nav') : 'header__nav'}`}>
         {links.map(link => {
           const { id, href, label } = link;
+
+          if (isMobile) {
+            return (
+              <Link key={id} href={href}>
+                <MobileLink
+                  onCustomClick={() => {
+                    this.closeMobileNav();
+                  }}
+                >
+                  {label}
+                </MobileLink>
+              </Link>
+            );
+          }
+
           return (
             <Link key={id} href={href}>
               <a className={`${page === label.toLowerCase() ? 'active' : ''}`}>{label}</a>
@@ -69,14 +103,7 @@ class Header extends Component {
             <Link href="/">
               <a className="header__logo navbar-brand">Home Inspectors California</a>
             </Link>
-            <i
-              className="header__mobile-toggle fa fa-bars"
-              onClick={() => {
-                this.setState({
-                  mobileNavOpen: !this.state.mobileNavOpen
-                });
-              }}
-            />
+            <i className="header__mobile-toggle fa fa-bars" onClick={this.toggleMobileNav} />
             {this.renderLinks({ isMobile: false })}
           </div>
         </header>
