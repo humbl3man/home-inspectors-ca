@@ -69,7 +69,7 @@ class Header extends Component {
           );
         })}
         <a href="tel:+18582472631" className="btn btn-outline-light call-now">
-          <i className="fa fa-phone" /> Call Now
+          <i className="fa fa-phone" /> 858.247.2631
         </a>
       </nav>
     );
