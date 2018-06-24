@@ -7,7 +7,7 @@ import './content.scss';
 
 export default () => (
   <div id="site">
-    <Header page="faq" title="faq" />
+    <Header page="faq" title="FAQ" />
     <main id="content" className="content">
       <div className="container faq">
         <h1 className="content__heading">Frequently Asked Questions</h1>
@@ -20,6 +20,11 @@ export default () => (
           systems and components defined by these Standards that are both observed and deemed material by the inspector.
           The scope of work may be modified by the Client and Inspector prior to the inspection process.
         </p>
+        <p className="lead">
+          {' '}
+          <i className="fa fa-question-circle" /> What areas do you service?
+        </p>
+        <p>Fresno, San Diego, Riverside, and Orange County.</p>
 
         <p className="lead">
           <i className="fa fa-question-circle" /> What do the services cost?
@@ -34,7 +39,7 @@ export default () => (
           <i className="fa fa-question-circle" /> Are you open on weekends?
         </p>
 
-        <p>Yes, I am available on weekends based on appointment.</p>
+        <p>Yes, our inspectors take weekend appointments.</p>
 
         <p className="lead">
           <i className="fa fa-question-circle" /> How long does the inspection take?

@@ -2,26 +2,27 @@
 
 .content {
 
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+
     h1,
     h2,
     h3 {
         font-family: $headingFontStack;
     }
 
-    margin-top: 3rem;
-    margin-bottom: 3rem;
     &__heading {
         position: relative;
         z-index: 1;
-        margin-bottom: 5rem;
+        margin-bottom: 3rem;
         text-align: center;
         font-size: 2.5rem;
 
         &:after {
             content: "";
-            width: 3rem;
+            width: 80px;
             height: 5px;
-            background: $color3;
+            background: $black;
             top: calc(100% + .5rem);
             left: 50%;
             transform: translateX(-50%);
@@ -60,6 +61,26 @@
 
     .featured {
         margin-bottom: 4rem;
+
+        h1,
+        h2,
+        h3 {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 2rem;
+            color: $color1;
+            &:after {
+                content: "";
+                position: absolute;
+                top: calc(100% + 0.5rem);
+                height: 5px;
+                width: 55px;
+                background: $color1;
+                left: 0;
+                display: block;
+            }
+        }
+
     }
 
     .faq {
@@ -72,13 +93,20 @@
     }
 
     .contact-callout {
-        background-image: url('/static/img/contact.jpg');
+        background-image: linear-gradient(rgba($color1, .3), rgba($black, .4)), url('/static/img/contact.jpg');
         background-size: cover;
         background-position: center;
         min-height: 500px;
 
         @media only screen and (max-width: 991px) {
             display: none!important;
+        }
+    }
+
+    .contact-message {
+        text-align: center;
+        @media only screen and (max-width: 767px) {
+            text-align: left;
         }
     }
 

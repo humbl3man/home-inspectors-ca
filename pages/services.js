@@ -7,7 +7,7 @@ import './content.scss';
 
 export default () => (
   <div id="site">
-    <Header page="services" title="services" />
+    <Header page="services" title="Services" />
     <main id="content" className="content">
       <div className="container">
         <h1 className="content__heading">Services</h1>

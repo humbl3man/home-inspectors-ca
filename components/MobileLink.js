@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class MobileLink extends Component {
   constructor() {
@@ -17,7 +18,7 @@ export default class MobileLink extends Component {
   }
 
   render() {
-    const { onCustomClick, children, ...props } = this.props;
+    const { children, ...props } = this.props;
 
     return (
       <a href="#" {...this.props} onClick={this.handleClick}>
@@ -26,3 +27,12 @@ export default class MobileLink extends Component {
     );
   }
 }
+
+MobileLink.defaultProps = {
+  onClick: null
+};
+
+MobileLink.propTypes = {
+  onClick: PropTypes.func,
+  onCustomClick: PropTypes.func.isRequired
+};

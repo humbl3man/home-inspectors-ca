@@ -40,6 +40,13 @@ const Footer = () => (
           <p>
             <small>Copyright &copy; {getCurrentYear()} Home Inspectors California - All Rights Reserved.</small>
           </p>
+          <p>
+            {' '}
+            Designed and Developed by{' '}
+            <a style={{ color: '#d4bc71' }} href="https://www.apkomatic.com">
+              Apkomatic
+            </a>
+          </p>
         </div>
       </div>
     </div>

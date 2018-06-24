@@ -13,19 +13,11 @@ export default () => (
         <h1 className="content__heading">Contact Us</h1>
         <div className="row">
           <section className="col-lg-6">
-            <div className="text-center border p-3 mb-3">
-              Contact us for a quote. We can work with your budget. <br /> We will reach out to you within 24 hours of
-              request.
-            </div>
+            <div className="border p-3 mb-3 contact-message">Contact us for a quote. We can work with your budget.</div>
             <ContactForm />
           </section>
 
-          <section className="contact-callout col-lg-6 text-center d-flex justify-content-center flex-column border">
-            {/* <h4>Home Inspectors California</h4>
-            <p>(858)-247-2631</p>
-            <h4>Hours</h4>
-            <p>By Appointment</p> */}
-          </section>
+          <section className="contact-callout col-lg-6 text-center d-flex justify-content-center flex-column border" />
         </div>
       </div>
     </main>

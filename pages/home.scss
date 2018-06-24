@@ -14,6 +14,9 @@ $heroBackgroundColor: rgba(scale_color($color1, $lightness: -60%), .8);
     background-size: cover;
     background-position: center;
 
+    position: relative;
+    z-index: 1;
+
     &__heading {
         font-family: $headingFontStack;
         font-size: 4rem;
@@ -56,13 +59,21 @@ $heroBackgroundColor: rgba(scale_color($color1, $lightness: -60%), .8);
 
     &__cta {
 
-        border-radius: 0;
-          background-color: $color3;
-            border-color: $color3;
+        border-radius: 2px;
+        background-color: $color3;
+        border-color: $color3;
 
         &:hover {
             background-color: darken($color3, 15%);
             border-color: darken($color3, 15%);
         }
+    }
+
+    &__attribution {
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: $white;
     }
 }

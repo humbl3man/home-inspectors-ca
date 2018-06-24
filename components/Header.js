@@ -1,39 +1,17 @@
 import React, { Component } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import Router from 'next/router';
 import PropTypes from 'prop-types';
-
+import NProgress from 'nprogress';
 import MobileLink from './MobileLink';
+import { LINKS } from './../config/config';
 
 import './Header.scss';
 
-const LINKS = [
-  {
-    id: 1,
-    href: '/',
-    label: 'home'
-  },
-  {
-    id: 2,
-    href: '/services',
-    label: 'services'
-  },
-  {
-    id: 3,
-    href: '/about-us',
-    label: 'about us'
-  },
-  {
-    id: 4,
-    href: '/contact-us',
-    label: 'contact'
-  },
-  {
-    id: 5,
-    href: '/faq',
-    label: 'FAQ'
-  }
-];
+Router.onRouteChangeStart = () => NProgress.start();
+Router.onRouteChangeComplete = () => NProgress.done();
+Router.onRouteChangeError = () => NProgress.done();
 
 class Header extends Component {
   constructor() {
@@ -93,15 +71,21 @@ class Header extends Component {
   }
 
   render() {
+    const { title } = this.props;
     return (
       <React.Fragment>
         <Head>
-          <title>Home Inspectors California</title>
+          <title>{`Home Inspectors California${title ? ` | ${title}` : ''}`}</title>
+          <link rel="icon" href="/static/favicon.png" />
+          <link rel="stylesheet" href="/static/nprogress.css" />
         </Head>
         <header className="header">
           <div className="container header__content">
             <Link href="/">
-              <a className="header__logo navbar-brand">Home Inspectors California</a>
+              <div className="header__logo">
+                <img src="/static/img/logo.png" alt="Home Inspectors California" />
+                <span>Home Inspectors California</span>
+              </div>
             </Link>
             <i className="header__mobile-toggle fa fa-bars" onClick={this.toggleMobileNav} />
             {this.renderLinks({ isMobile: false })}

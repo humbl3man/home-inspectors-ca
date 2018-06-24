@@ -17,12 +17,20 @@ export default () => (
           </p>
           <Link href="/contact-us">
             <a
+              href="#"
               style={{ width: '250px', animationDelay: '2.1s' }}
               className="animated fadeIn hero__cta btn btn-primary btn-lg d-block mx-auto"
             >
-              Contact Us
+              Get a Quote
             </a>
           </Link>
+        </div>
+        <div className="hero__attribution">
+          {' '}
+          Designed and Developed by{' '}
+          <a style={{ color: '#d4bc71' }} href="https://www.apkomatic.com">
+            Apkomatic
+          </a>
         </div>
       </div>
     </main>
