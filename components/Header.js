@@ -41,8 +41,10 @@ class Header extends Component {
     const { isMobile } = options;
     const { links } = this.state;
     const { page } = this.props;
+    const navigationClass = isMobile ? 'mobile-nav' : 'header__nav';
+    const mobileNavOpen = isMobile && this.state.mobileNavOpen;
     return (
-      <nav className={`${isMobile ? (this.state.mobileNavOpen ? 'mobile-nav open' : 'mobile-nav') : 'header__nav'}`}>
+      <nav className={`${navigationClass}${mobileNavOpen ? ' open' : ''}`}>
         {links.map(link => {
           const { id, href, label } = link;
 
